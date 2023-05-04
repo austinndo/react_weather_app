@@ -1,5 +1,5 @@
 import { useGeolocated } from 'react-geolocated'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 const DetermineGeolocation = () => {
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
@@ -10,6 +10,9 @@ const DetermineGeolocation = () => {
       userDecisionTimeout: 5000
     })
 
+  const [userLat, setUserLat] = useState(null)
+  const [userLong, setUserLong] = useState(null)
+
   const GeolocationNotAvailableReturn = () => {
     return <div>Your browser does not support Geolocation</div>
   }
@@ -19,6 +22,9 @@ const DetermineGeolocation = () => {
   }
 
   const GeolocationAvailableReturn = () => {
+    setUserLat(coords.latitude)
+    setUserLong(coords.longitude)
+
     return (
       <table>
         <tbody>
