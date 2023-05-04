@@ -2,6 +2,9 @@ import { useGeolocated } from 'react-geolocated'
 import { useState, useEffect } from 'react'
 
 const DetermineGeolocation = () => {
+  const [userLat, setUserLat] = useState(null)
+  const [userLong, setUserLong] = useState(null)
+
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
     useGeolocated({
       positionOptions: {
@@ -10,22 +13,13 @@ const DetermineGeolocation = () => {
       userDecisionTimeout: 5000
     })
 
-  const [userLat, setUserLat] = useState(null)
-  const [userLong, setUserLong] = useState(null)
+  const GeolocationNotAvailableReturn = (
+    <div>Your browser does not support Geolocation</div>
+  )
 
-  const GeolocationNotAvailableReturn = () => {
-    return <div>Your browser does not support Geolocation</div>
-  }
-
-  const GeolocationNotEnabledReturn = () => {
-    return <div>Geolocation is not enabled</div>
-  }
+  const GeolocationNotEnabledReturn = <div>Geolocation is not enabled</div>
 
   const GeolocationAvailableReturn = () => {
-    setUserLat(coords.latitude)
-    setUserLong(coords.longitude)
-
-    return (
       <table>
         <tbody>
           <tr>
@@ -50,26 +44,32 @@ const DetermineGeolocation = () => {
           </tr>
         </tbody>
       </table>
-    )
   }
 
-  const GeolocationInProgress = () => {
-    return <div>Getting the location data</div>
-  }
+  const GeolocationInProgress = <div>Getting the location data</div>
 
   const GeolocationLogic = () => {
-    return !isGeolocationAvailable
-      ? GeolocationNotAvailableReturn()
-      : !isGeolocationEnabled
-      ? GeolocationNotEnabledReturn()
-      : coords
-      ? GeolocationAvailableReturn()
-      : GeolocationInProgress()
+    if (coords) {
+      setUserLat(coords.latitude)
+      setUserLong(coords.longitude)
+
+      console.log(userLat)
+      console.log(userLong)
+    }
+
+    return (!isGeolocationAvailable)
+      ? GeolocationNotAvailableReturn
+      : (!isGeolocationEnabled)
+      ? GeolocationNotEnabledReturn
+      : (coords)
+      ? GeolocationAvailableReturn
+      : GeolocationInProgress
   }
 
   useEffect(() => {
     GeolocationLogic()
   }, [])
+
 }
 
 export default DetermineGeolocation
