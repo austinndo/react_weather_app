@@ -66,9 +66,11 @@ const DetermineGeolocation = () => {
       : GeolocationInProgress
   }
 
-  useEffect(() => {
-    GeolocationLogic()
-  }, [])
+  // useEffect(() => {
+  //   GeolocationLogic()
+  // }, [])
+
+  GeolocationLogic()
 
 }
 
