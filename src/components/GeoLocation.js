@@ -2,8 +2,6 @@ import { useGeolocated } from 'react-geolocated'
 import { useState, useEffect } from 'react'
 
 const DetermineGeolocation = () => {
-  const [userLat, setUserLat] = useState(null)
-  const [userLong, setUserLong] = useState(null)
 
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
     useGeolocated({
@@ -13,42 +11,48 @@ const DetermineGeolocation = () => {
       userDecisionTimeout: 5000
     })
 
+  const [userLat, setUserLat] = useState(null)
+  const [userLong, setUserLong] = useState(null)
+
   const GeolocationNotAvailableReturn = (
-    <div>Your browser does not support Geolocation</div>
-  )
+  <div>Your browser does not support Geolocation</div>
+)
 
   const GeolocationNotEnabledReturn = <div>Geolocation is not enabled</div>
 
   const GeolocationAvailableReturn = () => {
-      <table>
-        <tbody>
-          <tr>
-            <td>latitude</td>
-            <td>{coords.latitude}</td>
-          </tr>
-          <tr>
-            <td>longitude</td>
-            <td>{coords.longitude}</td>
-          </tr>
-          <tr>
-            <td>altitude</td>
-            <td>{coords.altitude}</td>
-          </tr>
-          <tr>
-            <td>heading</td>
-            <td>{coords.heading}</td>
-          </tr>
-          <tr>
-            <td>speed</td>
-            <td>{coords.speed}</td>
-          </tr>
-        </tbody>
-      </table>
-  }
+    <table>
+      <tbody>
+        <tr>
+          <td>latitude</td>
+          <td>{coords.latitude}</td>
+        </tr>
+        <tr>
+          <td>longitude</td>
+          <td>{coords.longitude}</td>
+        </tr>
+        <tr>
+          <td>altitude</td>
+          <td>{coords.altitude}</td>
+        </tr>
+        <tr>
+          <td>heading</td>
+          <td>{coords.heading}</td>
+        </tr>
+        <tr>
+          <td>speed</td>
+          <td>{coords.speed}</td>
+        </tr>
+      </tbody>
+    </table>
+}
 
   const GeolocationInProgress = <div>Getting the location data</div>
 
   const GeolocationLogic = () => {
+
+    console.log('Geolocation Logic has run')
+
     if (coords) {
       setUserLat(coords.latitude)
       setUserLong(coords.longitude)
@@ -66,12 +70,9 @@ const DetermineGeolocation = () => {
       : GeolocationInProgress
   }
 
-  // useEffect(() => {
-  //   GeolocationLogic()
-  // }, [])
-
-  GeolocationLogic()
-
+    useEffect(() => {
+      GeolocationLogic()
+    }, [])
 }
 
 export default DetermineGeolocation
