@@ -9,7 +9,11 @@ function App() {
 
   return (
     <div>
-      <DetermineGeolocation userLat={userLat} setUserLat={setUserLat} userLong={userLong} setUserLong={setUserLong}></DetermineGeolocation>
+      Weather App!
+      <DetermineGeolocation 
+        userLat={userLat} setUserLat={setUserLat} 
+        userLong={userLong} setUserLong={setUserLong}>
+      </DetermineGeolocation>
     </div>
   )
 

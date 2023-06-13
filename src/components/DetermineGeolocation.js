@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useGeolocated } from 'react-geolocated'
 
 const DetermineGeolocation = (props) => {
@@ -9,10 +10,12 @@ const DetermineGeolocation = (props) => {
       userDecisionTimeout: 5000
     });
 
-  if (coords) {
-    props.setUserLat(coords.latitude)
-    props.setUserLong(coords.longitude)
-  }
+  useEffect(() => {
+    if (coords) {
+      props.setUserLat(coords.latitude);
+      props.setUserLong(coords.longitude);
+    }
+    },[coords])
 
   const GeolocationNotAvailableReturn = (
       <div>Your browser does not support Geolocation</div>
