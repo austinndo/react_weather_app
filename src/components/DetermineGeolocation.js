@@ -1,7 +1,11 @@
 import { useEffect } from 'react';
+import axios from 'axios';
 import { useGeolocated } from 'react-geolocated'
 
+const API_KEY = process.env.REACT_APP_API_KEY
+
 const DetermineGeolocation = (props) => {
+
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
     useGeolocated({
       positionOptions: {
@@ -11,9 +15,22 @@ const DetermineGeolocation = (props) => {
     });
 
   useEffect(() => {
+
     if (coords) {
+      props.setGeolocated(true);
       props.setUserLat(coords.latitude);
       props.setUserLong(coords.longitude);
+
+      const api_call = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${props.userLat},${props.userLong}&days=3&aqi=yes&alerts=yes`
+      const getForecast = async () => {
+        let res = await axios.get(`${api_call}`)
+        console.log(res)
+        let weatherCurrent = res.data.current
+        let weatherForecast = res.data.forecast
+        props.setCurrentWeather(weatherCurrent)
+        props.setForecastWeather(weatherForecast)
+      }
+      getForecast()  
     }
     },[coords])
 
