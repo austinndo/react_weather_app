@@ -1,24 +1,18 @@
-import { useEffect } from 'react'
 import './App.css'
-import DetermineGeolocation from './components/GeoLocation'
-import axios from 'axios'
+import DetermineGeolocation from './components/DetermineGeolocation'
+import { useState, useEffect } from 'react'
 
-// dynamic render.. if userLat and userLong != null then render the weather content else render default / Lodaing ... 
+function App() {
 
-function App(props) {
+  const [userLat, setUserLat] = useState(null)
+  const [userLong, setUserLong] = useState(null)
 
   return (
     <div>
-      <DetermineGeolocation></DetermineGeolocation>
-      <div className="App">
-        Weather App Content
-        <div>
-          <div>User Lat: {props.userLat}</div>
-          <div>User Long: {props.userLong}</div>
-        </div>
-      </div>
+      <DetermineGeolocation userLat={userLat} setUserLat={setUserLat} userLong={userLong} setUserLong={setUserLong}></DetermineGeolocation>
     </div>
   )
+
 }
 
 export default App
