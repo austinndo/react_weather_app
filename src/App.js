@@ -1,6 +1,6 @@
 import './App.css'
 import DetermineGeolocation from './components/DetermineGeolocation'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 function App() {
 
@@ -11,17 +11,17 @@ function App() {
   const [forecastWeather, setForecastWeather] = useState({})
 
   return (
-    <div>
-      Weather App!
-      <DetermineGeolocation 
-        geolocated={geolocated} setGeolocated={setGeolocated}
-        userLat={userLat} setUserLat={setUserLat} 
-        userLong={userLong} setUserLong={setUserLong}
-        currentWeather={currentWeather} setCurrentWeather={setCurrentWeather}
-        forecastWeather={forecastWeather} setForecastWeather={setForecastWeather}
-        >
+    <div className='weatherApp'>
+      <DetermineGeolocation
+          geolocated={geolocated} setGeolocated={setGeolocated}
+          userLat={userLat} setUserLat={setUserLat} 
+          userLong={userLong} setUserLong={setUserLong}
+          currentWeather={currentWeather} setCurrentWeather={setCurrentWeather}
+          forecastWeather={forecastWeather} setForecastWeather={setForecastWeather}
+          >
       </DetermineGeolocation>
     </div>
+    
   )
 
 }
