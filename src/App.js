@@ -1,5 +1,6 @@
 import './App.css'
 import DetermineGeolocation from './components/DetermineGeolocation'
+import MainCard from './components/MainCard'
 import { useState } from 'react'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           forecastWeather={forecastWeather} setForecastWeather={setForecastWeather}
           >
       </DetermineGeolocation>
+      <MainCard></MainCard>
     </div>
     
   )
