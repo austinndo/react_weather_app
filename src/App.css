@@ -11,3 +11,9 @@ body {
   margin: 0 auto;
   margin-top: 10%;
 }
+
+.forecastCards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

@@ -17,10 +17,9 @@ const DetermineGeolocation = (props) => {
   useEffect(() => {
 
     if (coords) {
-      props.setGeolocated(true);
       props.setUserLat(coords.latitude);
       props.setUserLong(coords.longitude);
-
+      props.setGeolocated(true)
       // const api_call = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${props.userLat},${props.userLong}&days=3&aqi=yes&alerts=yes`
       // const getForecast = async () => {
       //   let res = await axios.get(`${api_call}`)
@@ -30,26 +29,29 @@ const DetermineGeolocation = (props) => {
       //   props.setCurrentWeather(weatherCurrent)
       //   props.setForecastWeather(weatherForecast)
       // }
-      // getForecast()  
-      console.log(props.userLat, props.userLong)
+      // getForecast() 
     }
-    },[coords])
+  }, [coords])
+
+  useEffect(() => {
+    console.log(props.userLat, props.userLong)
+  }, [props.geolocated])
 
   const GeolocationNotAvailableReturn = (
-      <div className='geolocationUnavailable'>Your browser does not support Geolocation</div>
-    )
-    
+    <div className='geolocationUnavailable'>Your browser does not support Geolocation</div>
+  )
+
   const GeolocationNotEnabledReturn = <div className='geolocationUnavailable'>Geolocation is not enabled</div>
-    
+
   const GeolocationInProgress = <div className='geolocationUnavailable'>Getting the location data...</div>
 
   return (!isGeolocationAvailable)
     ? GeolocationNotAvailableReturn
     : (!isGeolocationEnabled)
-    ? GeolocationNotEnabledReturn
-    : (coords)
-    ? false
-    : GeolocationInProgress
+      ? GeolocationNotEnabledReturn
+      : (coords)
+        ? false
+        : GeolocationInProgress
 }
 
 
