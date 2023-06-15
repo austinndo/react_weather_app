@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 body {
   background: aqua;
-}
-
-.weatherApp {
+  font-family: 'poppins';
   text-align: center;
 }
 
@@ -16,4 +16,11 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.forecastCard {
+  border: 2px solid rgb(50, 50, 50);
+  border-radius: 25px;
+  padding: 20px;
+  margin: 20px 20px auto;
 }

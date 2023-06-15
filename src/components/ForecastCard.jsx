@@ -1,8 +1,8 @@
 const ForecastCard = (props) => {
 
   return (
-    <div className="ForecastCard">
-      <div className="ForecastIconAndTemp">
+    <div className="forecastCard">
+      <div className="forecastIconAndTemp">
         <img src={props.weatherIcon}></img>
         <p> {props.weatherText} </p>
         <p>Avg Temp: {props.avgTemp}</p>
