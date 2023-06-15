@@ -2,6 +2,7 @@
 
 body {
   background: aqua;
+  margin: 0 auto;
   font-family: 'poppins';
   text-align: center;
 }
@@ -11,6 +12,26 @@ body {
   margin: 0 auto;
   margin-top: 10%;
 }
+
+/************ Main Card ************/
+
+.mainCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mainCardTempRanges {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.mainCardTempRanges p {
+  padding: 0 6px
+}
+
+/************ Forecast Cards *************/
 
 .forecastCards {
   display: flex;
@@ -23,4 +44,23 @@ body {
   border-radius: 25px;
   padding: 20px;
   margin: 20px 20px auto;
+}
+
+.forecastCard:hover {
+  transition-duration: 0.2s;
+  animation: ease-in-out;
+  transform: scale(1.1);
+}
+
+.forecastCardDay p {
+  margin: 6px 0;
+}
+
+.forecastIconAndTemp img {
+  max-width: 100%;
+  height: auto;
+}
+
+.forecastIconAndTemp p {
+  margin: 0 auto;
 }

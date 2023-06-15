@@ -16,41 +16,37 @@ const DetermineGeolocation = (props) => {
 
   useEffect(() => {
 
+    const api_call = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${props.userLat},${props.userLong}&days=3&aqi=yes&alerts=yes`
+    const getForecast = async () => {
+      let res = await axios.get(`${api_call}`)
+      props.setWeather(res.data)
+    }
+
     if (coords) {
       props.setUserLat(coords.latitude);
       props.setUserLong(coords.longitude);
+      getForecast();
+    }
+
+    if (props.userLat != null & props.userLong != null) {
       props.setGeolocated(true)
-      // const api_call = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${props.userLat},${props.userLong}&days=3&aqi=yes&alerts=yes`
-      // const getForecast = async () => {
-      //   let res = await axios.get(`${api_call}`)
-      //   console.log(res)
-      //   let weatherCurrent = res.data.current
-      //   let weatherForecast = res.data.forecast
-      //   props.setCurrentWeather(weatherCurrent)
-      //   props.setForecastWeather(weatherForecast)
-      // }
-      // getForecast() 
     }
   }, [coords])
 
-  useEffect(() => {
-    console.log(props.userLat, props.userLong)
-  }, [props.geolocated])
-
-  const GeolocationNotAvailableReturn = (
-    <div className='geolocationUnavailable'>Your browser does not support Geolocation</div>
-  )
+  const GeolocationNotAvailableReturn = <div className='geolocationUnavailable'>Your browser does not support Geolocation</div>
 
   const GeolocationNotEnabledReturn = <div className='geolocationUnavailable'>Geolocation is not enabled</div>
 
   const GeolocationInProgress = <div className='geolocationUnavailable'>Getting the location data...</div>
+
+  const userLocation = <div className='userLocation'>{props.weather.location.name}</div>
 
   return (!isGeolocationAvailable)
     ? GeolocationNotAvailableReturn
     : (!isGeolocationEnabled)
       ? GeolocationNotEnabledReturn
       : (coords)
-        ? false
+        ? userLocation
         : GeolocationInProgress
 }
 
