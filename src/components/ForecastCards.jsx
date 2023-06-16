@@ -2,8 +2,7 @@ import ForecastCard from "./ForecastCard"
 
 const ForecastCards = (props) => {
 
-  // #change these to props... when ready to make api calls
-  // forecast 0
+  //forecast 0
   const forecastZero = props.weather.forecast.forecastday[0].day
   let f0Date = props.weather.forecast.forecastday[0].date.split('-')
   let avgTempF0 = forecastZero.avgtemp_f
@@ -60,7 +59,7 @@ const ForecastCards = (props) => {
     </div>
   )
 
-  return (props.geolocated === true) ? forecastCards : false
+  return (props.geolocated === true & props.weather != null) ? forecastCards : false
 }
 
 export default ForecastCards

@@ -1,8 +1,5 @@
-import { useEffect } from "react"
-
 const MainCard = (props) => {
 
-  let location = props.weather.location.name
   let currentTemp = props.weather.current.temp_f
   let feelsLike = props.weather.current.feelslike_f
 
@@ -38,10 +35,7 @@ const MainCard = (props) => {
 
   const mainCard = (
     <div className="mainCard">
-      MAIN CARD
-      {/* <div className="mainCardLocation">
-        <p>{location}</p>
-      </div> */}
+      MAIN CARD / FORECAST CARD ZERO
       <div className="mainCardIconAndTemp">
         <img src={weatherIcon0}></img>
         <p> {weatherText0} </p>
@@ -49,6 +43,7 @@ const MainCard = (props) => {
         <p>Feels Like: {feelsLike} &deg;F</p>
       </div>
       <div className="mainCardTempRanges">
+        <p>Avg Temp: {avgTemp0} &deg;F</p>
         <p>Low: {minTemp0} &deg;F</p>
         <p>High: {maxTemp0} &deg;F</p>
       </div>
@@ -62,10 +57,7 @@ const MainCard = (props) => {
 
   const forecastCardOne = (
     <div className="mainCard">
-      FORECAST CARD
-      {/* <div className="mainCardLocation">
-        <p>{location}</p>
-      </div> */}
+      FORECAST CARD ONE
       <div className="mainCardIconAndTemp">
         <img src={weatherIcon1}></img>
         <p> {weatherText1} </p>
@@ -85,10 +77,7 @@ const MainCard = (props) => {
 
   const forecastCardTwo = (
     <div className="mainCard">
-      FORECAST CARD
-      {/* <div className="mainCardLocation">
-        <p>{location}</p>
-      </div> */}
+      FORECAST CARD TWO
       <div className="mainCardIconAndTemp">
         <img src={weatherIcon2}></img>
         <p> {weatherText2} </p>
@@ -106,9 +95,9 @@ const MainCard = (props) => {
     </div>
   )
 
-  // let logic = props.geolocated === true & props.weather != null
+  // return (props.geolocated === true & props.weather != null & props.mainCard === 0) ? mainCard : (props.geolocated === true & props.weather != null & props.mainCard === 1) ? forecastCardOne : (props.geolocated === true & props.weather != null & props.mainCard === 2) ? forecastCardTwo : false
 
-  return (props.geolocated === true & props.weather != null & props.mainCard === 0) ? mainCard : (props.geolocated === true & props.weather != null & props.mainCard === 1) ? forecastCardOne : (props.geolocated === true & props.weather != null & props.mainCard === 2) ? forecastCardTwo : false
+  return (props.mainCard === 0) ? mainCard : (props.mainCard === 1) ? forecastCardOne : forecastCardTwo
 }
 
 export default MainCard
