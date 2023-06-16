@@ -95,8 +95,6 @@ const MainCard = (props) => {
     </div>
   )
 
-  // return (props.geolocated === true & props.weather != null & props.mainCard === 0) ? mainCard : (props.geolocated === true & props.weather != null & props.mainCard === 1) ? forecastCardOne : (props.geolocated === true & props.weather != null & props.mainCard === 2) ? forecastCardTwo : false
-
   return (props.mainCard === 0) ? mainCard : (props.mainCard === 1) ? forecastCardOne : forecastCardTwo
 }
 

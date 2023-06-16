@@ -2,7 +2,6 @@ import './App.css'
 import axios from 'axios';
 import { useEffect, useState } from 'react'
 import { useGeolocated } from 'react-geolocated'
-// import DetermineGeolocation from './components/DetermineGeolocation'
 import MainCard from './components/MainCard'
 import ForecastCards from './components/ForecastCards'
 
@@ -40,9 +39,6 @@ function App() {
       getForecast().then(setGeolocated(true))
     }
 
-    // if (userLat != null & userLong != null) {
-    //   setGeolocated(true)
-    // }
   }, [coords])
 
   const GeolocationNotAvailableReturn = (
@@ -64,20 +60,19 @@ function App() {
   )
 
   const GeolocationSucceeded = (
-  <div className='weatherApp'>
-    {userLocation}
-  <MainCard
-      geolocated={geolocated}
-      mainCard={mainCard}
-      weather={weather}
-  />
-  <ForecastCards
-      geolocated={geolocated}
-      mainCard={mainCard} setMainCard={setMainCard}
-      weather={weather}
-  />
-</div>)
-
+    <div className='weatherApp'>
+          {userLocation}
+      <MainCard
+        geolocated={geolocated}
+        mainCard={mainCard}
+        weather={weather}
+      />
+      <ForecastCards
+        geolocated={geolocated}
+        mainCard={mainCard} setMainCard={setMainCard}
+        weather={weather}
+      />
+    </div>)
 
   return (!isGeolocationAvailable)
     ? GeolocationNotAvailableReturn
@@ -86,32 +81,6 @@ function App() {
       : (weather != null)
         ? GeolocationSucceeded
         : GeolocationInProgress
-
-
-  // return (geolocated === true & weather != null) ? geolocationSucceeded : geolocationInProgress
-  
-  
-  
-  // (
-  //   <div className='weatherApp'>
-  //     <DetermineGeolocation
-  //         geolocated={geolocated} setGeolocated={setGeolocated}
-  //         userLat={userLat} setUserLat={setUserLat} 
-  //         userLong={userLong} setUserLong={setUserLong}
-  //         weather={weather} setWeather={setWeather}
-  //         />
-  //     <MainCard
-  //         geolocated={geolocated}
-  //         mainCard={mainCard}
-  //         weather={weather}
-  //     />
-  //     <ForecastCards
-  //         geolocated={geolocated}
-  //         mainCard={mainCard} setMainCard={setMainCard}
-  //         weather={weather}
-  //     />
-  //   </div>
-  // )
 
 }
 
