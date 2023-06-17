@@ -59,7 +59,7 @@ const ForecastCards = (props) => {
     </div>
   )
 
-  return (props.geolocated === true & props.weather != null) ? forecastCards : false
+  return (props.weather != null) ? forecastCards : false
 }
 
 export default ForecastCards

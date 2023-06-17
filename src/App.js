@@ -9,13 +9,12 @@ const API_KEY = process.env.REACT_APP_API_KEY
 
 function App() {
 
-  const [geolocated, setGeolocated] = useState(false)
+  // const [geolocated, setGeolocated] = useState(false)
   const [userLat, setUserLat] = useState(null)
   const [userLong, setUserLong] = useState(null)
+  const [userLocation, setUserLocation] = useState(<div></div>)
   const [weather, setWeather] = useState(null)
   const [mainCard, setMainCard] = useState(0)
-
-  let userLocation = <div className='userLocation'></div>
 
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
   useGeolocated({
@@ -30,13 +29,13 @@ function App() {
     const getForecast = async () => {
         let res = await axios.get(`${api_call}`);
         setWeather(res.data);
-        userLocation = <div className='userLocation'>{res.data.location.name}</div>
       }
 
     if (coords) {
       setUserLat(coords.latitude);
       setUserLong(coords.longitude);
-      getForecast().then(setGeolocated(true))
+      // getForecast().then(setGeolocated(true))
+      getForecast().then(setUserLocation(weather.location.name))
     }
 
   }, [coords])
@@ -61,14 +60,16 @@ function App() {
 
   const GeolocationSucceeded = (
     <div className='weatherApp'>
-          {userLocation}
+      <div className='userLocation'>
+        <p>{userLocation}</p>
+      </div>
       <MainCard
-        geolocated={geolocated}
+        // geolocated={geolocated}
         mainCard={mainCard}
         weather={weather}
       />
       <ForecastCards
-        geolocated={geolocated}
+        // geolocated={geolocated}
         mainCard={mainCard} setMainCard={setMainCard}
         weather={weather}
       />
