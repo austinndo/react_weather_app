@@ -13,6 +13,10 @@ body {
   margin-top: 10%;
 }
 
+.weatherApp {
+  margin-top: 50px
+}
+
 /************ Main Card ************/
 
 .mainCard {
@@ -29,6 +33,10 @@ body {
 
 .mainCardTempRanges p {
   padding: 0 6px
+}
+
+#feelsLike {
+  font-size: medium;
 }
 
 /************ Forecast Cards *************/
