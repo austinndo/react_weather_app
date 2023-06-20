@@ -26,7 +26,7 @@ function App() {
     const api_call = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${userLat},${userLong}&days=3&aqi=yes&alerts=yes`
     const getForecast = async () => {
         let res = await axios.get(`${api_call}`);
-        console.log(res.data)
+        console.log(res.data);
         setWeather(res.data)
       }
 

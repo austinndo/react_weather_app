@@ -1,3 +1,5 @@
+import { IoLocationSharp } from "react-icons/io5"
+
 const MainCard = (props) => {
 
   let location = props.weather.location.name
@@ -37,20 +39,26 @@ const MainCard = (props) => {
   const mainCard = (
     <div className="mainCard">
       <div className='userLocation'>
-        <p>{location}</p>
+        <IoLocationSharp /><p>{location}</p>
       </div>
-      <div className="mainCardIconAndTemp">
-        <img src={weatherIcon0}></img>
+
+      <div className="mainCardIcon">
+        <img src={weatherIcon0} alt="forecastWeatherIcon"></img>
+      </div>
+
+      <div className="mainCardWeatherText">
         <p> {weatherText0} </p>
         <p>Current Temp: {currentTemp} &deg;F</p>
         <p id="feelsLike">Feels Like: {feelsLike} &deg;F</p>
       </div>
+
       <div className="mainCardTempRanges">
         <p>Avg Temp: {avgTemp0} &deg;F</p>
         <p>Low: {minTemp0} &deg;F</p>
         <p>High: {maxTemp0} &deg;F</p>
       </div>
-      <div>
+
+      <div className="mainCardMisc">
         <p>Chance of Rain: {chanceOfRain0}</p>
         <p>Sunrise: {sunrise0}</p>
         <p>Sunset: {sunset0}</p>
@@ -61,18 +69,24 @@ const MainCard = (props) => {
   const forecastCardOne = (
     <div className="mainCard">
       <div className='userLocation'>
-        <p>{location}</p>
+        <IoLocationSharp /><p>{location}</p>
       </div>
-      <div className="mainCardIconAndTemp">
-        <img src={weatherIcon1}></img>
+
+      <div className="mainCardIcon">
+        <img src={weatherIcon1} alt="forecastWeatherIcon"></img>
+      </div>
+
+      <div className="mainCardWeatherText">
         <p> {weatherText1} </p>
         <p>Avg Temp: {avgTemp1} &deg;F</p>
       </div>
+
       <div className="mainCardTempRanges">
         <p>Low: {minTemp1} &deg;F</p>
         <p>High: {maxTemp1} &deg;F</p>
       </div>
-      <div>
+
+      <div className="mainCardMisc">
         <p>Chance of Rain: {chanceOfRain1}</p>
         <p>Sunrise: {sunrise1}</p>
         <p>Sunset: {sunset1}</p>
@@ -83,18 +97,24 @@ const MainCard = (props) => {
   const forecastCardTwo = (
     <div className="mainCard">
       <div className='userLocation'>
-        <p>{location}</p>
+        <IoLocationSharp /><p>{location}</p>
       </div>
-      <div className="mainCardIconAndTemp">
-        <img src={weatherIcon2}></img>
+
+      <div className="mainCardIcon">
+        <img src={weatherIcon2} alt="forecastWeatherIcon"></img>
+      </div>
+
+      <div>
         <p> {weatherText2} </p>
         <p>Avg Temp: {avgTemp2} &deg;F</p>
       </div>
+
       <div className="mainCardTempRanges">
         <p>Low: {minTemp2} &deg;F</p>
         <p>High: {maxTemp2} &deg;F</p>
       </div>
-      <div>
+
+      <div className="mainCardMisc">
         <p>Chance of Rain: {chanceOfRain2}</p>
         <p>Sunrise: {sunrise2}</p>
         <p>Sunset: {sunset2}</p>
