@@ -2,15 +2,15 @@ import './App.css'
 import axios from 'axios';
 import { useEffect, useState } from 'react'
 import { useGeolocated } from 'react-geolocated'
-import MainCard from './components/MainCard'
+import Main from './components/Main'
 import ForecastCards from './components/ForecastCards'
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
 function App() {
 
-  const [userLat, setUserLat] = useState(null)
-  const [userLong, setUserLong] = useState(null)
+  // const [userLat, setUserLat] = useState(null)
+  // const [userLong, setUserLong] = useState(null)
   const [weather, setWeather] = useState(null)
   const [mainCard, setMainCard] = useState(0)
 
@@ -23,16 +23,19 @@ function App() {
   });
 
   useEffect(() => {
-    const api_call = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${userLat},${userLong}&days=3&aqi=yes&alerts=yes`
-    const getForecast = async () => {
+
+    if (coords) {
+      const api_call = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${coords.latitude},${coords.longitude}&days=3&aqi=yes&alerts=yes`
+      const getForecast = async () => {
         let res = await axios.get(`${api_call}`);
         console.log(res.data);
         setWeather(res.data)
       }
 
-    if (coords) {
-      setUserLat(coords.latitude);
-      setUserLong(coords.longitude);
+      console.log(coords.latitude);
+      console.log(coords.longitude)
+      // setUserLat(coords.latitude);
+      // setUserLong(coords.longitude);
       getForecast()
     }
 
@@ -58,7 +61,7 @@ function App() {
 
   const GeolocationSucceeded = (
     <div className='weatherApp'>
-      <MainCard
+      <Main
         mainCard={mainCard}
         weather={weather}
       />

@@ -19,7 +19,7 @@ body {
 }
 
 .geolocationUnavailable {
-  font-size: larger;
+  font-size: var(--big-font);
   margin: 0 auto;
   margin-top: 10%;
 }
@@ -38,8 +38,7 @@ body {
   border-radius: 25px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 60%;
+  height: 350px;
 }
 
 .userLocation {
@@ -51,16 +50,50 @@ body {
 
 .userLocation p {
   margin-left: 8px;
+  font-size: var(--big-font);
 }
 
-.mainCardTempRanges {
+.mainCardCurrent {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.mainCardTempRanges p {
+#feelsLike {
+  margin-left: 4px;
+}
+
+#mainCardIcon {
+  height: 100px;
+  object-fit: fill;
+}
+
+.mainCardTemp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mainCardTempRange {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.mainCardTempRange p {
   padding: 0 6px
+}
+
+.mainCardUVAndRain {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.mainCardSun {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 /************ Forecast Cards *************/
@@ -68,14 +101,14 @@ body {
 .forecastCards {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  height: 150px;
 }
 
 .forecastCardZero,
 .forecastCardOne,
 .forecastCardTwo {
-  min-width: 90%;
-  height: 5%;
+  height: 45px;
+  width: auto;
 }
 
 .forecastCard {
@@ -88,7 +121,7 @@ body {
 }
 
 .forecastCard p {
-  font-size: 20%;
+  font-size: var(--small-font);
 }
 
 .forecastCard:hover {

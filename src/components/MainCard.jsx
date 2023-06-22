@@ -1,128 +1,47 @@
-import { IoLocationSharp } from "react-icons/io5"
+import { BsCloudRain, BsSunrise, BsSunsetFill } from "react-icons/bs"
+import { GiRadiations } from "react-icons/gi"
 
 const MainCard = (props) => {
 
-  let location = props.weather.location.name
-  let currentTemp = props.weather.current.temp_f
-  let feelsLike = props.weather.current.feelslike_f
+  return (
+    <div className="mainCardContent">
 
-  let weath0 = props.weather.forecast.forecastday[0]
-  let avgTemp0 = weath0.day.avgTemp
-  let minTemp0 = weath0.day.mintemp_f
-  let maxTemp0 = weath0.day.maxtemp_f
-  let weatherIcon0 = weath0.day.condition.icon
-  let weatherText0 = weath0.day.condition.text
-  let chanceOfRain0 = weath0.day.daily_chance_of_rain
-  let sunrise0 = weath0.astro.sunrise
-  let sunset0 = weath0.astro.sunset
+      <img src={props.icon} alt="weatherIcon" id="mainCardIcon"></img>
 
-  let weath1 = props.weather.forecast.forecastday[0]
-  let avgTemp1 = weath1.day.avgTemp
-  let minTemp1 = weath1.day.mintemp_f
-  let maxTemp1 = weath1.day.maxtemp_f
-  let weatherIcon1 = weath1.day.condition.icon
-  let weatherText1 = weath1.day.condition.text
-  let chanceOfRain1 = weath1.day.daily_chance_of_rain
-  let sunrise1 = weath1.astro.sunrise
-  let sunset1 = weath1.astro.sunset
+      <p id="mainCardWeatherText"> {props.text} </p>
 
-  let weath2 = props.weather.forecast.forecastday[0]
-  let avgTemp2 = weath2.day.avgTemp
-  let minTemp2 = weath2.day.mintemp_f
-  let maxTemp2 = weath2.day.maxtemp_f
-  let weatherIcon2 = weath2.day.condition.icon
-  let weatherText2 = weath2.day.condition.text
-  let chanceOfRain2 = weath2.day.daily_chance_of_rain
-  let sunrise2 = weath2.astro.sunrise
-  let sunset2 = weath2.astro.sunset
-
-  const mainCard = (
-    <div className="mainCard">
-      <div className='userLocation'>
-        <IoLocationSharp /><p>{location}</p>
+      <div className="mainCardTemp">
+        <p>Avg Temp: {props.avg} &deg;F</p>
+        <div className="mainCardTempRange">
+          <p>Low: {props.low} &deg;F</p>
+          <p>High: {props.high} &deg;F</p>
+        </div>
       </div>
 
-      <div className="mainCardIcon">
-        <img src={weatherIcon0} alt="forecastWeatherIcon"></img>
+      <div className="mainCardUVAndRain">
+        <div>
+          <GiRadiations />
+          <p>UV Index: {props.uv}</p>
+        </div>
+
+        <div>
+          <BsCloudRain />
+          <p>Chance of Rain: {props.rain}</p>
+        </div>
       </div>
 
-      <div className="mainCardWeatherText">
-        <p> {weatherText0} </p>
-        <p>Current Temp: {currentTemp} &deg;F</p>
-        <p id="feelsLike">Feels Like: {feelsLike} &deg;F</p>
-      </div>
-
-      <div className="mainCardTempRanges">
-        <p>Avg Temp: {avgTemp0} &deg;F</p>
-        <p>Low: {minTemp0} &deg;F</p>
-        <p>High: {maxTemp0} &deg;F</p>
-      </div>
-
-      <div className="mainCardMisc">
-        <p>Chance of Rain: {chanceOfRain0}</p>
-        <p>Sunrise: {sunrise0}</p>
-        <p>Sunset: {sunset0}</p>
+      <div className="mainCardSun">
+        <div>
+          <BsSunrise />
+          <p>Sunrise: {props.sunrise}</p>
+        </div>
+        <div>
+          <BsSunsetFill />
+          <p>Sunset: {props.sunset}</p>
+        </div>
       </div>
     </div>
   )
-
-  const forecastCardOne = (
-    <div className="mainCard">
-      <div className='userLocation'>
-        <IoLocationSharp /><p>{location}</p>
-      </div>
-
-      <div className="mainCardIcon">
-        <img src={weatherIcon1} alt="forecastWeatherIcon"></img>
-      </div>
-
-      <div className="mainCardWeatherText">
-        <p> {weatherText1} </p>
-        <p>Avg Temp: {avgTemp1} &deg;F</p>
-      </div>
-
-      <div className="mainCardTempRanges">
-        <p>Low: {minTemp1} &deg;F</p>
-        <p>High: {maxTemp1} &deg;F</p>
-      </div>
-
-      <div className="mainCardMisc">
-        <p>Chance of Rain: {chanceOfRain1}</p>
-        <p>Sunrise: {sunrise1}</p>
-        <p>Sunset: {sunset1}</p>
-      </div>
-    </div>
-  )
-
-  const forecastCardTwo = (
-    <div className="mainCard">
-      <div className='userLocation'>
-        <IoLocationSharp /><p>{location}</p>
-      </div>
-
-      <div className="mainCardIcon">
-        <img src={weatherIcon2} alt="forecastWeatherIcon"></img>
-      </div>
-
-      <div>
-        <p> {weatherText2} </p>
-        <p>Avg Temp: {avgTemp2} &deg;F</p>
-      </div>
-
-      <div className="mainCardTempRanges">
-        <p>Low: {minTemp2} &deg;F</p>
-        <p>High: {maxTemp2} &deg;F</p>
-      </div>
-
-      <div className="mainCardMisc">
-        <p>Chance of Rain: {chanceOfRain2}</p>
-        <p>Sunrise: {sunrise2}</p>
-        <p>Sunset: {sunset2}</p>
-      </div>
-    </div>
-  )
-
-  return (props.mainCard === 0) ? mainCard : (props.mainCard === 1) ? forecastCardOne : forecastCardTwo
 }
 
 export default MainCard
