@@ -43,7 +43,7 @@ const Main = (props) => {
   const mainCard = (
     <div className="mainCard">
       <div className='userLocation'>
-        <IoLocationSharp /><p>{location}</p>
+        <IoLocationSharp size={16} /><p>{location}</p>
       </div>
 
       <div className="mainCardCurrent">
@@ -67,7 +67,7 @@ const Main = (props) => {
   const forecastCardOne = (
     <div className="mainCard">
       <div className='userLocation'>
-        <IoLocationSharp /><p>{location}</p>
+        <IoLocationSharp size={16} /><p>{location}</p>
       </div>
       <MainCard
         icon={weatherIcon1}
@@ -86,7 +86,7 @@ const Main = (props) => {
   const forecastCardTwo = (
     <div className="mainCard">
       <div className='userLocation'>
-        <IoLocationSharp /><p>{location}</p>
+        <IoLocationSharp size={16} /><p>{location}</p>
       </div>
       <MainCard
         icon={weatherIcon2}
