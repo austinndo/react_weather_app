@@ -8,7 +8,7 @@ const Main = (props) => {
   let feelsLike = props.weather.current.feelslike_f
 
   let weath0 = props.weather.forecast.forecastday[0]
-  let avgTemp0 = weath0.day.avgTemp
+  let avgTemp0 = weath0.day.avgtemp_f
   let minTemp0 = weath0.day.mintemp_f
   let maxTemp0 = weath0.day.maxtemp_f
   let weatherIcon0 = weath0.day.condition.icon
@@ -19,7 +19,7 @@ const Main = (props) => {
   let sunset0 = weath0.astro.sunset
 
   let weath1 = props.weather.forecast.forecastday[1]
-  let avgTemp1 = weath1.day.avgTemp
+  let avgTemp1 = weath1.day.avgtemp_f
   let minTemp1 = weath1.day.mintemp_f
   let maxTemp1 = weath1.day.maxtemp_f
   let weatherIcon1 = weath1.day.condition.icon
@@ -30,7 +30,7 @@ const Main = (props) => {
   let sunset1 = weath1.astro.sunset
 
   let weath2 = props.weather.forecast.forecastday[2]
-  let avgTemp2 = weath2.day.avgTemp
+  let avgTemp2 = weath2.day.avgtemp_f
   let minTemp2 = weath2.day.mintemp_f
   let maxTemp2 = weath2.day.maxtemp_f
   let weatherIcon2 = weath2.day.condition.icon
