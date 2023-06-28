@@ -8,8 +8,6 @@
 
 @media only screen and (min-width: 768px) {}
 
-
-
 body {
   background: rgb(68, 227, 227);
   margin: 0 auto;
@@ -37,12 +35,16 @@ body {
 /************ Main Card ************/
 
 .mainCard {
-  border: 2px solid rgb(50, 50, 50);
+  border: 2px solid rgba(50, 50, 50, 0.407);
   border-radius: 25px;
   display: flex;
   flex-direction: column;
-  height: 350px;
+  height: 380px;
   width: 300px;
+}
+
+.mainCard p {
+  font-size: var(--med-font);
 }
 
 .userLocation {
@@ -51,6 +53,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 35px;
+  margin-top: 10px;
 }
 
 .userLocation p {
@@ -64,6 +67,7 @@ body {
   justify-content: center;
 }
 
+
 #feelsLike {
   margin-left: 4px;
 }
@@ -71,6 +75,10 @@ body {
 #mainCardIcon {
   height: 100px;
   object-fit: fill;
+}
+
+#mainCardWeatherText {
+  margin: 2px 0;
 }
 
 .mainCardTemp {
@@ -106,6 +114,7 @@ body {
 .forecastCards {
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
 }
 
 .forecastCardZero,
@@ -113,18 +122,15 @@ body {
 .forecastCardTwo {
   height: 45px;
   width: 300px;
-  padding: 10px 10px 10px 10px;
+  margin: 10px;
   border: 2px solid rgb(50, 50, 50);
   border-radius: 25px;
-  display: flex;
-  flex-direction: row;
-  align-content: space-evenly;
 }
 
-/* .forecastCard {
-  display: flex;
-  justify-content: space-evenly;
-} */
+.forecastCard {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+}
 
 .forecastCard p {
   font-size: var(--small-font);
@@ -136,15 +142,38 @@ body {
   transform: scale(1.1);
 }
 
-.forecastCardDay p {
-  margin: 6px 0;
+.forecastCardDay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.forecastIconAndTemp img {
-  max-width: 100%;
-  height: auto;
+.forecastCardDay p {
+  margin: 2px 0;
+}
+
+.forecastIconAndTemp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .forecastIconAndTemp p {
-  margin: 0 auto;
+  margin: 2px 0;
+}
+
+#forecastIcon {
+  height: 20px;
+  object-fit: fill;
+}
+
+.forecastAvg {
+  display: flex;
+  justify-content: center;
+}
+
+.forecastAvg p {
+  font-size: var(--med-font);
 }
