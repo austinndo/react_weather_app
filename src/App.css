@@ -181,3 +181,9 @@ body {
 .forecastAvg p {
   font-size: var(--med-font);
 }
+
+.tempBar {
+  border: 2px solid rgba(50, 50, 50, 0.26);
+  border-radius: 10px;
+  background: linear-gradient(to right, blue, red);
+}

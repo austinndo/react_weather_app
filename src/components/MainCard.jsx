@@ -3,6 +3,16 @@ import { GiRadiations } from "react-icons/gi"
 
 const MainCard = (props) => {
 
+  const tempBar = (
+    <div className="tempBarRange">
+      <p>{props.low} &deg;F</p>
+      <div className="tempBar">
+        <p>Avg: {props.avg} &deg;F</p>
+      </div>
+      <p>{props.high} &deg;F</p>
+    </div>
+  )
+
   return (
     <div className="mainCardContent">
 
@@ -11,11 +21,7 @@ const MainCard = (props) => {
       <p id="mainCardWeatherText"> {props.text} </p>
 
       <div className="mainCardTemp">
-        <p>Avg Temp: {props.avg} &deg;F</p>
-        <div className="mainCardTempRange">
-          <p>Low: {props.low} &deg;F</p>
-          <p>High: {props.high} &deg;F</p>
-        </div>
+        {tempBar}
       </div>
 
       <div className="mainCardUVAndRain">
