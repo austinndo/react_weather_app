@@ -9,12 +9,12 @@ const ForecastCard = (props) => {
         <p>{month}/{day}</p>
         <p>{props.day}</p>
       </div>
-      <div className="forecastAvg">
-        <p>{props.avgTemp} &deg;F</p>
-      </div>
       <div className="forecastIconAndTemp">
         <img src={props.weatherIcon} alt="forecastWeatherIcon" id="forecastIcon"></img>
         <p>{props.weatherText}</p>
+      </div>
+      <div className="forecastAvg">
+        <p>{props.avgTemp} &deg;F</p>
       </div>
     </div>)
 }

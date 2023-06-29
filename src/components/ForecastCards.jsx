@@ -26,7 +26,7 @@ const ForecastCards = (props) => {
   const forecastCards = (
     <div className="forecastCards">
 
-      <div className="forecastCardZero" onClick={() => props.setMainCard(0)}>
+      <div className="forecastCardZero" id={props.mainCard === 0 ? "activeCard" : null} onClick={() => props.setMainCard(0)}>
         <ForecastCard
           date={f0Date}
           day={'Today'}
@@ -36,7 +36,7 @@ const ForecastCards = (props) => {
         ></ForecastCard>
       </div>
 
-      <div className="forecastCardOne" onClick={() => props.setMainCard(1)}>
+      <div className="forecastCardOne" id={props.mainCard === 1 ? "activeCard" : null} onClick={() => props.setMainCard(1)}>
         <ForecastCard
           date={f1Date}
           day={'Tomorrow'}
@@ -46,7 +46,7 @@ const ForecastCards = (props) => {
         ></ForecastCard>
       </div>
 
-      <div className="forecastCardTwo" onClick={() => props.setMainCard(2)}>
+      <div className="forecastCardTwo" id={props.mainCard === 2 ? "activeCard" : null} onClick={() => props.setMainCard(2)}>
         <ForecastCard
           date={f2Date}
           day={'In Two Days'}
@@ -57,7 +57,8 @@ const ForecastCards = (props) => {
       </div>
 
     </div>
-  )
+  );
+
 
   return (props.weather != null) ? forecastCards : false
 }
