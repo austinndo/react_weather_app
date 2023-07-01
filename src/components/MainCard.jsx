@@ -5,11 +5,11 @@ const MainCard = (props) => {
 
   const tempBar = (
     <div className="tempBarRange">
-      <p>{props.low} &deg;F</p>
+      <p id="tempLow">{props.low} &deg;F</p>
       <div className="tempBar">
         <p>Avg: {props.avg} &deg;F</p>
       </div>
-      <p>{props.high} &deg;F</p>
+      <p id="tempHigh">{props.high} &deg;F</p>
     </div>
   )
 

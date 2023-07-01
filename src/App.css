@@ -82,20 +82,30 @@ body {
   margin: 2px 0;
 }
 
-.mainCardTemp {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.mainCardTempRange {
+.tempBarRange {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
-.mainCardTempRange p {
-  padding: 0 6px
+.tempBar {
+  width: 180px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(0, 0, 0, 0.18);
+  border-radius: 8px;
+  background: linear-gradient(to right, rgba(0, 0, 255, 0.60), rgba(255, 0, 0, 0.60));
+}
+
+#tempLow {
+  margin-right: 6px;
+}
+
+#tempHigh {
+  margin-left: 6px;
 }
 
 .mainCardUVAndRain {
@@ -181,17 +191,4 @@ body {
 
 .forecastAvg p {
   font-size: var(--med-font);
-}
-
-.tempBarRange {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.tempBar {
-  width: 200px;
-  border: 2px solid rgba(50, 50, 50, 0.26);
-  border-radius: 10px;
-  background: linear-gradient(to right, blue, red);
 }
