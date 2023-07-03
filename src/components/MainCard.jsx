@@ -3,6 +3,14 @@ import { GiRadiations } from "react-icons/gi"
 
 const MainCard = (props) => {
 
+  const uvCheck = (uv, min, max) => {
+    return uv >= min && uv <= max;
+  }
+
+  const uvIDLogic = () => {
+    return uvCheck(props.uv, 1, 2) ? "uvLow" : uvCheck(props.uv, 3, 5) ? "uvModerate" : uvCheck(props.uv, 6, 7) ? "uvHigh" : uvCheck(props.uv, 8, 10) ? "uvVeryHigh" : "uvExtreme"
+  }
+
   const tempBar = (
     <div className="tempBarRange">
       <p id="tempLow">{props.low} &deg;F</p>
@@ -27,7 +35,10 @@ const MainCard = (props) => {
       <div className="mainCardUVAndRain">
         <div>
           <GiRadiations />
-          <p>UV Index: {props.uv}</p>
+          <div className="mainCardUVText">
+            <p>UV Index:</p>
+            <p id={uvIDLogic()}>{props.uv}</p>
+          </div>
         </div>
 
         <div>

@@ -114,6 +114,31 @@ body {
   justify-content: center;
 }
 
+.mainCardUVText {
+  display: flex;
+  flex-direction: row;
+}
+
+#uvLow {
+  color: green;
+}
+
+#uvModerate {
+  color: yellow
+}
+
+#uvHigh {
+  color: orange
+}
+
+#uvVeryHigh {
+  color: red
+}
+
+#uvExtreme {
+  color: purple
+}
+
 .mainCardSun {
   display: flex;
   flex-direction: row;
