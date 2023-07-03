@@ -34,7 +34,7 @@ const MainCard = (props) => {
 
       <div className="mainCardUVAndRain">
         <div>
-          <GiRadiations />
+          <GiRadiations size={12} />
           <div className="mainCardUVText">
             <p>UV Index:</p>
             <p id={uvIDLogic()}>{props.uv}</p>
@@ -42,18 +42,18 @@ const MainCard = (props) => {
         </div>
 
         <div>
-          <BsCloudRain />
+          <BsCloudRain size={12} />
           <p>Chance of Rain: {props.rain}</p>
         </div>
       </div>
 
       <div className="mainCardSun">
         <div>
-          <BsSunrise />
+          <BsSunrise size={12} />
           <p>Sunrise: {props.sunrise}</p>
         </div>
         <div>
-          <BsSunsetFill />
+          <BsSunsetFill size={12} />
           <p>Sunset: {props.sunset}</p>
         </div>
       </div>
