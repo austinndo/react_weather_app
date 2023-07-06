@@ -9,8 +9,6 @@ const API_KEY = process.env.REACT_APP_API_KEY
 
 function App() {
 
-  // const [userLat, setUserLat] = useState(null)
-  // const [userLong, setUserLong] = useState(null)
   const [weather, setWeather] = useState(null)
   const [mainCard, setMainCard] = useState(0)
 
@@ -32,10 +30,6 @@ function App() {
         setWeather(res.data)
       }
 
-      console.log(coords.latitude);
-      console.log(coords.longitude)
-      // setUserLat(coords.latitude);
-      // setUserLong(coords.longitude);
       getForecast()
     }
 
