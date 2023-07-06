@@ -9,7 +9,9 @@
 @media only screen and (min-width: 768px) {}
 
 body {
-  background: rgba(68, 171, 227, 0.617);
+  background: rgb(72, 228, 166, 0.8);
+  background: linear-gradient(340deg, rgba(72, 220, 228, 0.6) 0%, rgba(72, 124, 228, 0.8) 50%, rgba(72, 228, 166, 0.6) 100%);
+  background-attachment: fixed;
   margin: 0 auto;
   font-family: 'poppins';
   text-align: center;
@@ -32,7 +34,8 @@ body {
 /************ Main Card ************/
 
 .mainCard {
-  border: 2px solid rgba(50, 50, 50, 0.407);
+  background: rgba(61, 80, 133, 0.8);
+  border: 2px solid rgba(50, 50, 50, 0.400);
   border-radius: 25px;
   display: flex;
   flex-direction: column;
@@ -63,7 +66,6 @@ body {
   align-items: center;
   justify-content: center;
   height: 35px;
-  /* margin-top: 10px; */
 }
 
 .userLocation p {
@@ -131,12 +133,12 @@ body {
 
 #uvLow {
   margin-left: 4px;
-  color: green;
+  /* color: green; */
 }
 
 #uvModerate {
   margin-left: 4px;
-  color: yellow
+  /* color: yellow */
 }
 
 #uvHigh {
@@ -164,7 +166,7 @@ body {
 .forecastCards {
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 .forecastCardZero,
@@ -172,8 +174,8 @@ body {
 .forecastCardTwo {
   height: 45px;
   width: 300px;
-  margin: 10px;
-  border: 2px solid rgb(50, 50, 50);
+  margin: 8px;
+  border: 2px solid rgba(50, 50, 50, 0.50);
   border-radius: 25px;
 }
 
