@@ -8,10 +8,18 @@
 
 @media only screen and (min-width: 768px) {}
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100;
+  }
+}
+
 body {
-  background: rgb(72, 228, 166, 0.8);
-  background: linear-gradient(340deg, rgba(72, 220, 228, 0.6) 0%, rgba(72, 124, 228, 0.8) 50%, rgba(72, 228, 166, 0.6) 100%);
-  background-attachment: fixed;
+  background: rgba(72, 150, 228, 0.6);
   margin: 0 auto;
   font-family: 'poppins';
   text-align: center;
@@ -34,14 +42,17 @@ body {
 /************ Main Card ************/
 
 .mainCard {
-  background: rgba(61, 80, 133, 0.8);
+  background: rgb(72, 108, 228);
+  background: linear-gradient(319deg, rgba(72, 108, 228, 0.6) 0%, rgba(126, 126, 126, 0.6) 88%);
   border: 2px solid rgba(50, 50, 50, 0.400);
   border-radius: 25px;
+  box-shadow: 4px 4px 4px rgba(122, 122, 122, 0.5);
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 380px;
   width: 300px;
+  animation: fade-in 1.5s;
 }
 
 .mainCard p {
@@ -78,7 +89,6 @@ body {
   flex-direction: row;
   justify-content: center;
 }
-
 
 #feelsLike {
   margin-left: 4px;
@@ -167,6 +177,8 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 15px;
+  animation: fade-in 1.5s;
+  animation-iteration-count: 1;
 }
 
 .forecastCardZero,
@@ -177,6 +189,8 @@ body {
   margin: 8px;
   border: 2px solid rgba(50, 50, 50, 0.50);
   border-radius: 25px;
+  background: rgba(126, 126, 126, 0.6);
+  box-shadow: 3px 3px 3px rgba(122, 122, 122, 0.4);
 }
 
 .forecastCardZero:hover,
@@ -197,7 +211,8 @@ body {
 }
 
 #activeCard {
-  background: rgb(64, 120, 232);
+  background: rgba(72, 108, 228, 0.60);
+  transform: scale(1.005);
 }
 
 .forecastCardDay {
