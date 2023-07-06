@@ -66,8 +66,7 @@ const Main = (props) => {
 
   const forecastCardOne = (
     <div className="mainCard">
-      <p id="tomorrow">Tomorrow</p>
-      <div className='userLocation'>
+      <div className='userLocation' id="noCurrentTemp">
         <IoLocationSharp size={16} /><p>{location}</p>
       </div>
       <MainCard
@@ -86,8 +85,7 @@ const Main = (props) => {
 
   const forecastCardTwo = (
     <div className="mainCard">
-      <p id="inTwoDays">In Two Days</p>
-      <div className='userLocation'>
+      <div className='userLocation' id="noCurrentTemp">
         <IoLocationSharp size={16} /><p>{location}</p>
       </div>
       <MainCard

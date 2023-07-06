@@ -3,7 +3,10 @@
 :root {
   --small-font: 8px;
   --med-font: 12px;
-  --big-font: 16px
+  --big-font: 16px;
+  --card-background: rgba(126, 126, 126, 0.6);
+  --selected-card-background: rgba(126, 126, 126, 0.8);
+  --main-card-background: linear-gradient(319deg, rgba(72, 108, 228, 0.6) 0%, rgba(126, 126, 126, 0.6) 88%);
 }
 
 @media only screen and (min-width: 768px) {}
@@ -42,11 +45,10 @@ body {
 /************ Main Card ************/
 
 .mainCard {
-  background: rgb(72, 108, 228);
-  background: linear-gradient(319deg, rgba(72, 108, 228, 0.6) 0%, rgba(126, 126, 126, 0.6) 88%);
-  border: 2px solid rgba(50, 50, 50, 0.400);
+  background: var(--main-card-background);
+  border: 2px solid rgba(50, 50, 50, 0.20);
   border-radius: 25px;
-  box-shadow: 4px 4px 4px rgba(122, 122, 122, 0.5);
+  box-shadow: 5px 5px 5px rgba(122, 122, 122, 0.5);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,16 +61,8 @@ body {
   font-size: var(--med-font);
 }
 
-#tomorrow {
-  font-size: var(--big-font);
-  margin-top: -5px;
-  margin-bottom: 2px;
-}
-
-#inTwoDays {
-  font-size: var(--big-font);
-  margin-top: -5px;
-  margin-bottom: 2px;
+#noCurrentTemp {
+  margin-top: -15px;
 }
 
 .userLocation {
@@ -116,7 +110,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid rgba(0, 0, 0, 0.18);
   border-radius: 8px;
   background: linear-gradient(to right, rgba(0, 0, 255, 0.4), rgba(255, 0, 0, 0.4));
 }
@@ -187,9 +180,9 @@ body {
   height: 45px;
   width: 300px;
   margin: 8px;
-  border: 2px solid rgba(50, 50, 50, 0.50);
+  border: 2px solid rgba(50, 50, 50, 0.20);
   border-radius: 25px;
-  background: rgba(126, 126, 126, 0.6);
+  background: var(--card-background);
   box-shadow: 3px 3px 3px rgba(122, 122, 122, 0.4);
 }
 
@@ -211,8 +204,9 @@ body {
 }
 
 #activeCard {
-  background: rgba(72, 108, 228, 0.60);
-  transform: scale(1.005);
+  background: var(--selected-card-background);
+  border: 2px solid rgba(50, 50, 50, 0.40);
+  transform: scale(1.05);
 }
 
 .forecastCardDay {
