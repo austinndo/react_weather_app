@@ -27,10 +27,10 @@
 ## **_Images_**
 
 ### **Main Page**
-![fishBackground](https://wallpaperaccess.com/full/2801591.jpg)
+![main_page](/assets/weather_app_photo_1.png)
 
-### **Map of Oceans**
-![mapOfOceans](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.britannica.com%2F13%2F195913-050-396DEEC4%2FWorld-map-Oceans-Continents-Mendel.jpg&f=1&nofb=1)
+### **Main Card**
+![main_card](/assets/weather_app_photo_2.png)
 
-### **Boat**
-![boat](https://static.thenounproject.com/png/23815-200.png)
+### **Forecast Cards**
+![forecast_cards](/assets/weather_app_photo_3.png)
